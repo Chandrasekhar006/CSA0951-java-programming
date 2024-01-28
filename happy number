@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class HarshadNumber {
+
+    // Function to check if a number is a Harshad number
+    static boolean isHarshad(int num) {
+        int sum = 0;
+        int originalNum = num;
+
+        // Calculate the sum of digits
+        while (num > 0) {
+            int digit = num % 10;
+            sum += digit;
+            num /= 10;
+        }
+
+        // Check if the number is divisible by the sum of its digits
+        return originalNum % sum == 0;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        if (isHarshad(number)) {
+            System.out.println(number + " is a Harshad number.");
+        } else {
+            System.out.println(number + " is not a Harshad number.");
+        }
+
+        scanner.close();
+    }
+}
+
